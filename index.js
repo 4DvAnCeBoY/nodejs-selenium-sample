@@ -21,10 +21,10 @@ const webdriver = require('selenium-webdriver');
 */
 
 // username: Username can be found at automation dashboard
-const USERNAME = '{username}';
+const USERNAME = process.env.LT_USERNAME;
 
 // AccessKey:  AccessKey can be generated from automation dashboard or profile section
-const KEY = '{accessKey}';
+const KEY = process.env.LT_ACCESS_KEY;
 
 // gridUrl: gridUrl can be found at automation dashboard
 const GRID_HOST = 'hub.lambdatest.com/wd/hub';
@@ -35,14 +35,9 @@ function searchTextOnGoogle() {
     const capabilities = {
         platform: 'windows 10',
         browserName: 'chrome',
-        version: '67.0',
-        resolution: '1280x800',
-        network: true,
-        visual: true,
-        console: true,
-        video: true,
-        name: 'Test 1', // name of the test
-        build: 'NodeJS build' // name of the build
+        version: 'latest',
+        name: 'nodejs-sample-test', // name of the test
+        build: 'NodeJS Sample' // name of the build
     }
 
     // URL: https://{username}:{accessToken}@beta-hub.lambdatest.com/wd/hub
